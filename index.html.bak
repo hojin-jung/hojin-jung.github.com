@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="Keywords" content="">
+<meta name="Keywords" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+
+<meta name="format-detection" content="telephone=no" />
+
+<!--<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">-->
+
+<meta property="og:title" content="타이틀입력" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.mgcard.net/inv/?_mc=1492842850" />
+<meta property="og:image" content="img/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg"/>
+<meta property="og:description" content="결혼식에 초대합니다.일시:2017-09-10 13:30장소:양재시민의 숲" />
+<style>
+   /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+   #map {
+     height: 100%;
+   }
+   /* Optional: Makes the sample page fill the window. */
+   html, body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+   }
+ </style>
+
+
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/board.css">
+
+
+<script src="js/jquery-2.1.0.min.js"></script>
+<script src="js/jquery.swipebox.js"></script>
+
+<link rel="stylesheet" href="/css/swipebox.css">
+
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox();
+
+} )( jQuery );
+</script>
+
+
+<script language="javascript">
+<!--
+	var play = false;
+	function playerMusic(){
+		var obj = document.getElementById("mPlayer");
+		var objImg = document.getElementById("musicImg");
+		if(play == false){
+			objImg.src = "img/music_on.png";
+			obj.play();
+			play = true;
+		}else{
+			objImg.src = "img/music.png";
+			obj.pause();
+			play = false;
+		}
+	}
+	function regComment(){
+		if($("#name").val() == ""){
+			alert('이름을 입력하세요.');
+			$("#name").focus();
+			return false;
+		}
+		if($("#pwd").val() == ""){
+			alert('비밀번호를 입력하세요.');
+			$("#pwd").focus();
+			return false;
+		}
+		if($("#content").val() == ""){
+			alert('내용을 입력하세요.');
+			$("#content").focus();
+			return false;
+		}
+		if(!$(":input:radio[name=emoticon]:checked").val()){
+			alert('느낌을 선택하세요.');
+			return false;
+		}
+
+		var param = $("#commentF").serialize();
+
+		$.ajax({
+			type: "POST",
+			url: "/inv/board/comment_reg_new.php",
+			dataType:"html",
+			data:param,
+			success:function(data){
+				var obj = document.getElementById("commentDiv");
+
+				var HTML = "<div class='gdl_row'>";
+				HTML = HTML + "<div class='guest_doc_list'>";
+				HTML = HTML + "<div class='gdl_icon'><span class='guest_icons1 guest_icons'></span></div>";
+				HTML = HTML + "<div class='gdl_cont'><strong>모닝글로리</strong><span class='gdl_date'>2017-02-17 09:12:33</span><span class='gdl_txt'>안녕하세요 결혼 축하드립니다.<br/>이쁘게 사랑하고 행복하게 사세요</span></div>";
+				HTML = HTML + "</div>";
+				HTML = HTML + "</div>";
+
+				obj.innerHTML = data;
+				$("#name").val("");
+				$("#pwd").val("");
+				$("#content").val("");
+			},
+			error:function(xhr){
+			}
+		});
+	}
+
+	function goKaKao(msg,url,img,width,height){
+		Kakao.cleanup();
+		Kakao.init('a0cf9a0a643c4c1265505394a4fa953f');
+
+		try{
+
+			//Kakao.Link.createTalkLinkButton({
+			Kakao.Link.sendTalkLink ({
+				//container: '#kakao-link-btn',
+				label: msg,
+				image: {
+					src: img,
+					width: width,
+					height: height
+				},
+				webButton:{
+					text:'모바일청첩장으로 이동',
+					url: url
+				},
+				fail: function(){
+
+				}
+			});
+		}catch(e){
+			alert(e.toString());
+		}
+	}
+
+	function scrollLink(obj){
+	 var position = $("#"+obj).offset();
+
+	 $('html, body').animate({scrollTop : position.top}, 1000);
+
+	}
+
+	var pIndex = 1;
+	var totPage = 1;
+	function getCommentData(){
+		pIndex = pIndex + 1;
+		if(pIndex > totPage){
+			alert('더이상 데이터가 없습니다.');
+			return;
+		}
+		var param = "flag=2&page=" + pIndex + "&refcode=1492842850";
+		$.ajax({
+			type: "POST",
+			url: "/inv/board/comment_list_new.php",
+			dataType:"html",
+			data:param,
+			success:function(data){
+				var obj = document.getElementById("commentDiv");
+				obj.innerHTML = obj.innerHTML + data;
+			},
+			error:function(xhr){
+			}
+		});
+	}
+	function delAuth(code,flag){
+
+	var obj = document.getElementById("pwdDiv" + code);
+
+	if(flag == 1){
+		obj.style.display = "block";
+		return;
+	}else{
+		obj.style.display = "none";
+		return;
+	}
+}
+	function delConfirm(code){
+		var pwd = document.getElementById("pwd" + code);
+		if(pwd.value == ""){
+			alert('비밀번호를 입력하세요.');
+			pwd.focus();
+			return;
+		}
+		var param = "flag=2&mode=del&code=" + code + "&refcode=1492842850&pwd=" + pwd.value;
+		$.ajax({
+			type: "POST",
+			url: "/inv/board/comment_reg_new.php",
+			dataType:"html",
+			data:param,
+			success:function(data){
+				if(data == 'not'){
+					alert('비밀번호가 일치하지 않습니다');
+					return;
+				}else{
+					var obj = document.getElementById("commentDiv");
+					obj.innerHTML = data;
+					delAuth(code,0);
+				}
+			},
+			error:function(xhr){
+			}
+		});
+	}
+//-->
+</script>
+
+</head>
+
+<body>
+	<div class="body">
+		<div class="tmenu">
+			<div class="music_controller">
+				<a href="javascript:playerMusic();">
+					<img src="img/music.png" alt="" id="musicImg">
+					<!--
+					뮤직 on 이미지
+					<img src="img/music_on.png" alt="">
+					-->
+				</a>
+			</div>
+			<div class="logo">
+			<img src="img/logo.png" alt="">			</div>
+		</div>
+
+		<!-- main-->
+				<div class="main">
+		<a href="img/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg" class="swipebox">
+			<img src="img/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg" width="100%">
+		</a>
+		</div>
+				<!--<div class="main">
+			<img src="img/main.jpg" alt="">
+		</div>-->
+		<!--// main-->
+
+		<!-- 인사말-->
+		<div class="greet">
+			<div class="t_image"><img src="img/02_01.png"></div>
+			<div class="t_text">
+				<img src="img/greet_text.png" alt="">
+				<!--
+				/////////////텍스트///////////////
+				흔들림 없는 믿음의 촛불을 사랑으로 밝히며 <br>
+				이제 저희 두 사람이 사랑의 결실을 이루려 합니다. <br>
+				늘 푸르른 마음과 깊은 정성으로 행복의 문을 들어서는 <br>
+				저희들을 가까이 오셔서 축복해 주시기 바랍니다.
+				-->
+			</div>
+
+			<div class="weddinginfo">
+				<div class="person">
+					<div>
+						<div><img src="img/01_02.png" alt="" height="15"></div>
+						<div>장세관</div>
+					</div>
+					<div>
+						<div><img src="img/01_03.png" alt="" height="15"></div>
+						<div>남유미</div>
+					</div>
+				</div>
+				<div class="dateinfo">
+					<div class="t_date">2017.09.10. 13:30</div>
+					<div class="t_location">양재시민의 숲 예식장</div>
+				</div>
+			</div>
+
+			<div class="dday_count">
+				<img src="img/main_dday.png" alt="" height="12"> -			</div>
+
+			<!--신랑,신부 전화및 문자-->
+			<!-- <div class="icons_tel">
+				<div>
+					<a href="tel:01034594587"><img src="img/02_02.png" alt="신랑전화"></a>
+					<a href="sms:01034594587"><img src="img/02_03.png" alt="신랑문자"></a>
+					<a href="tel:01032508627"><img src="img/02_04.png" alt="신부전화"></a>
+					<a href="sms:01032508627"><img src="img/02_05.png" alt="신부문자"></a>
+				</div>
+				<img src="img/icons_tel_bg.png" alt="">
+			</div> -->
+
+		</div>
+
+		<div class="section_group">
+
+			<!-- 겔러리 -->
+						<div class="section sgallery">
+				<div class="t_tit"><img src="img/section_01.png"></div>
+				<div class="t_cont">
+										<div class="t_main_image">
+						<!--main이미지는 고화질주소, 크롭주소 같은걸루 사이즈는 가로 640 세로는 상관없음-->
+						<a href="img/mcard/thumb-f54d9162f2e9250_600x480.026367831.jpg" class="swipebox">
+							<img src="img/mcard/thumb-f54d9162f2e9250_600x480.026367831.jpg">
+						</a>
+					</div>
+										<div class="t_images">
+						<!--
+						<a href="고화질 이미지 주소 (사이즈 640x ? 세로는 상관없음)" class="swipebox">
+							<img src="크롭이미지주소 (사이즈 200x133)">
+						</a>
+						-->
+												<a href="img/mcard/thumb-81e4cecfe7f83eb_600x840.098603122.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-81e4cecfe7f83eb_600x840.098603122.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-81e4cecfe7f83eb_600x840.098603122.jpg" />
+						</a>
+												<a href="img/mcard/thumb-6dca0e3dbdb6312_600x600.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-6dca0e3dbdb6312_600x600.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-6dca0e3dbdb6312_600x600.jpg" />
+						</a>
+												<a href="img/mcard/thumb-1c69b044e88bc4a_600x428.571428571.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-1c69b044e88bc4a_600x428.571428571.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-1c69b044e88bc4a_600x428.571428571.jpg" />
+						</a>
+												<a href="img/mcard/thumb-203a2cebcb47e63_600x839.92943252.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-203a2cebcb47e63_600x839.92943252.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-203a2cebcb47e63_600x839.92943252.jpg" />
+						</a>
+												<a href="img/mcard/thumb-a11cbcb7a538e0e_600x400.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-a11cbcb7a538e0e_600x400.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-a11cbcb7a538e0e_600x400.jpg" />
+						</a>
+												<a href="img/mcard/thumb-0324ab9a7e44a3c_600x428.571428571.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-0324ab9a7e44a3c_600x428.571428571.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-0324ab9a7e44a3c_600x428.571428571.jpg" />
+						</a>
+												<a href="img/mcard/thumb-521b24412a319df_600x840.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-521b24412a319df_600x840.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-521b24412a319df_600x840.jpg" />
+						</a>
+												<a href="img/mcard/thumb-b8e723a0bf537dc_600x428.571428571.jpg" class="swipebox">
+							<!--<img src="img/mcard/thumb-b8e723a0bf537dc_600x428.571428571.jpg" width="220" height="133">-->
+							<img style="width:135px; height:133px;" src="img/mcard/thumb-b8e723a0bf537dc_600x428.571428571.jpg" />
+						</a>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- 동영상-->
+
+			<!--웨딩홀위치정보-->
+			<div class="section">
+				<div class="t_tit"><img src="img/section_03.png"></div>
+				<div class="t_cont wmaps">
+					<div id="map"></div>
+					<div class="map_address">
+						<strong>울산MBC컨벤션웨딩/1층/펠리시타홀</strong>
+						<span>울산MBC컨벤션웨딩</span>
+						<div class="map_user">
+						</div>
+					<div class="map_icons">
+						<a href="tel:0522915500"><img src="img/wedinfo1.png" alt="예식장전화"></a>
+						<!--<a href="#"><img src="img/wedinfo2.png" alt="카카오네비" id="kakao_navi"></a>-->
+						<a href="javascript:navi();" id="navi"><img src="img/wedinfo2.png" alt="카카오네비"></a>
+						<a href="#"><img src="img/wedinfo3.png" alt="네이버네비" id="naver_navi"></a>
+					</div>
+										<div class="bus_info">
+						<a href="http://m.map.naver.com/route.nhn?sname=&sy=&sx=&ename=%EC%9A%B8%EC%82%B0MBC%EC%BB%A8%EB%B2%A4%EC%85%98%EC%9B%A8%EB%94%A9&ey=522362&ex=329948&incomeUrl=http%3A%2F%2Fm.search.naver.com%2Fsearch.naver" target="_blank"><img src="img/wedinfo4.png"></a>
+						<a href="http://m.map.naver.com/subway/subwayLine.nhn?region=1000" target="_blank"><img src="img/wedinfo5.png"></a>
+					</div>
+										<script>
+					setNaverMap(522362,329948,'user');
+					</script>
+										<script type='text/javascript'>
+
+
+					  //<![CDATA[
+						// 사용할 앱의 JavaScript 키를 설정해 주세요.
+						Kakao.init('a0cf9a0a643c4c1265505394a4fa953f');
+						// 카카오 로그인 버튼을 생성합니다.
+						function navi(){
+							Kakao.Navi.start({
+								name: "울산MBC컨벤션웨딩/1층/펠리시타홀",
+								x: 522362,
+								y: 329948,
+								coordType: 'katec'
+							});
+						}
+					  //]]>
+					</script>
+				</div>
+			</div>
+
+		</div><!--//section_group-->
+
+</body>
+</html>
+
+<script>
+function initGeolocation() {
+	if (navigator && navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+	} else {
+		console.log('위치정보가 지원되지 않는 기기입니다.\n해당기기에서는 네비게이션 연결이 원할하지 않을 수 있습니다.');
+	}
+}
+
+function errorCallback() {
+ switch(error.code)
+	{
+		case error.PERMISSION_DENIED: alert("위치정보가 꺼져있습니다.\n정상적인 네비게이션 연결을 위해서는 반드시 활성화 되어야 합니다.");
+		break;
+
+		case error.POSITION_UNAVAILABLE: alert("현재 위치 정보를 확인 할 수 없습니다.");
+		break;
+
+		case error.TIMEOUT: alert("위처정보 요청시간이 초과 되었습니다.\n잠시후에 다시 시도해 주십시요.");
+		break;
+
+		default: alert("위치정보 요청중 기타 오류");
+		break;
+	}
+}
+
+</script>
+<script>
+jQuery('#facebook').click(function () {
+	sendSns('facebook', 'http://www.mgcard.net/inv/?_mc=1492842850', '[장세관 ♡ 남유미] \n결혼식에 초대합니다.\n일시:2017-05-20 13:00\n장소:울산MBC컨벤션웨딩/1층/펠리시타홀');
+  return false;
+});
+
+jQuery('#twitter').click(function () {
+	sendSns('twitter', 'http://www.mgcard.net/inv/?_mc=1492842850', '[장세관 ♡ 남유미] \n결혼식에 초대합니다.\n일시:2017-05-20 13:00\n장소:울산MBC컨벤션웨딩/1층/펠리시타홀');
+  return false;
+});
+
+jQuery('#kakaostory').click(function () {
+	sendSns('kakaostory', 'http://www.mgcard.net/inv/?_mc=1492842850', '[장세관 ♡ 남유미] \n결혼식에 초대합니다.\n일시:2017-05-20 13:00\n장소:울산MBC컨벤션웨딩/1층/펠리시타홀');
+  return false;
+});
+
+jQuery('#kakao_navi').click(function () {
+
+	var map_addr = "울산MBC컨벤션웨딩/1층/펠리시타홀";
+	var map_lat = "522362";
+	var map_lon = "329948";
+
+	//var map_lat = "35.1687470";
+	//var map_lon = "128.6575159";
+
+	var ua = window.navigator.userAgent.toLowerCase();
+
+	if(/android/.test(ua)){
+
+		document.location.href = "http://openapi.kimgisa.co.kr/addpoi?key=aaeaf33444f34380a402889bb84ec024&name="+encodeURIComponent(map_addr)+"&coordinate=wgs84&pos_x="+map_lon+"&pos_y="+map_lat+"&download=true";
+
+	}else{
+
+		var url = "http://openapi.kimgisa.co.kr/addpoi?key=aaeaf33444f34380a402889bb84ec024&name="+encodeURIComponent(map_addr)+"&coordinate=wgs84&pos_x="+map_lon+"&pos_y="+map_lat+"&download=true";
+
+		window.open(url,"callApp");
+
+	}
+
+  return false;
+});
+
+jQuery('#naver_navi').click(function () {
+
+	var os = "";
+	// 아래는 OS 구분에 대한 부분은 예시 코드다.  모바일이 아닌 경우도 고려해야 한다.
+	if(navigator.userAgent.toLocaleLowerCase().search("iphone") > -1){
+		os = "ios";
+	}else{
+		os = "android";
+	}
+
+	var storeURL ="";
+	if (os == "ios") {
+		storeURL = "http://itunes.apple.com/kr/app/id393499958?mt=8"
+	} else {
+		storeURL = "http://m.androidapp.naver.com/naverapp";
+	}
+
+	var openAt = new Date;
+	 setTimeout(
+	 	function() {
+	 		if (new Date - openAt < 1000)
+	 			document.location.href = storeURL;
+	 	}, 500);
+
+		document.location.href='http://m.map.naver.com/appLink.nhn?version=11&menu=navigation';
+
+  return false;
+});
+</script>
+
+<script>
+function sendSns(sns, url, txt)
+{
+    var o;
+    var _url = encodeURIComponent(url);
+    var _txt = encodeURIComponent(txt);
+    var _br  = encodeURIComponent('\r\n');
+
+    switch(sns)
+    {
+        case 'facebook':
+            o = {
+                method:'popup',
+                url:'http://www.facebook.com/sharer/sharer.php?u=' + _url
+            };
+            break;
+
+        case 'twitter':
+            o = {
+                method:'popup',
+                url:'http://twitter.com/intent/tweet?text=' + _txt + '&url=' + _url
+            };
+            break;
+
+        case 'me2day':
+            o = {
+                method:'popup',
+                url:'http://me2day.net/posts/new?new_post[body]=' + _txt + _br + _url + '&new_post[tags]=epiloum'
+            };
+            break;
+
+        case 'kakaotalk':
+            o = {
+                method:'web2app',
+                param:'sendurl?msg=' + _txt + '&url=' + _url + '&type=link&apiver=2.0.1&appver=2.0&appid=www.mgcard.net&appname=' + encodeURIComponent('모닝글로리청첩장'),
+                a_store:'itms-apps://itunes.apple.com/app/id362057947?mt=8',
+                g_store:'market://details?id=com.kakao.talk',
+                a_proto:'kakaolink://',
+                g_proto:'scheme=kakaolink;package=com.kakao.talk'
+            };
+            break;
+
+        case 'kakaostory':
+            o = {
+                method:'web2app',
+                param:'posting?post=' + _txt + _br + _url + '&apiver=1.0&appver=2.0&appid=www.mgcard.net&appname=' + encodeURIComponent('모닝글로리청첩장'),
+                a_store:'itms-apps://itunes.apple.com/app/id486244601?mt=8',
+                g_store:'market://details?id=com.kakao.story',
+                a_proto:'storylink://',
+                g_proto:'scheme=storylink;package=com.kakao.story'
+            };
+            break;
+
+        case 'band':
+            o = {
+                method:'web2app',
+                param:'create/post?text=' + _txt + _br + _url,
+                a_store:'itms-apps://itunes.apple.com/app/id542613198?mt=8',
+                g_store:'market://details?id=com.nhn.android.band',
+                a_proto:'bandapp://',
+                g_proto:'scheme=bandapp;package=com.nhn.android.band'
+            };
+            break;
+
+        default:
+            alert('지원하지 않는 SNS입니다.');
+            return false;
+    }
+
+    switch(o.method)
+    {
+        case 'popup':
+            window.open(o.url);
+            break;
+
+        case 'web2app':
+            if(navigator.userAgent.match(/android/i))
+            {
+                // Android
+                setTimeout(function(){ location.href = 'intent://' + o.param + '#Intent;' + o.g_proto + ';end'}, 100);
+            }
+            else if(navigator.userAgent.match(/(iphone)|(ipod)|(ipad)/i))
+            {
+                // Apple
+                setTimeout(function(){ location.href = o.a_store; }, 200);
+                setTimeout(function(){ location.href = o.a_proto + o.param }, 100);
+            }
+            else
+            {
+                alert('이 기능은 모바일에서만 사용할 수 있습니다.');
+            }
+            break;
+    }
+}
+</script>
+
+<script>
+ var map;
+
+ console.log('map');
+ console.log(document.getElementById("map"));
+
+
+
+ function initMap() {
+   map = new google.maps.Map(document.getElementById('map'), {
+     center: new google.maps.LatLng(39.305, -76.617),
+     zoom: 8
+   });
+ }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2QRqCyj0KKW2Vv2Dfcxf6aOD6fgA7MPA&callback=initMap" async defer></script>
