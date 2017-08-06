@@ -594,6 +594,9 @@ function sendSns(sns, url, txt)
 
 <script>
  var map;
+
+ console.log('map');
+ console.log(document.getElementById("map"));
  function initMap() {
    map = new google.maps.Map(document.getElementById('map'), {
      center: {lat: -34.397, lng: 150.644},
