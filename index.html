@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -14,9 +16,33 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://www.mgcard.net/inv/?_mc=1492842850" />
 <meta property="og:image" content="img/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg"/>
-<meta property="og:description" content="[장세관 ♡ 남유미] 결혼식에 초대합니다.일시:2017-05-20 13:00장소:울산MBC컨벤션웨딩/1층/펠리시타홀" />
+<meta property="og:description" content="결혼식에 초대합니다.일시:2017-09-10 13:30장소:양재시민의 숲" />
+<style>
+   /* Always set the map height explicitly to define the size of the div
+    * element that contains the map. */
+   #map {
+     height: 100%;
+   }
+   /* Optional: Makes the sample page fill the window. */
+   html, body {
+     height: 100%;
+     margin: 0;
+     padding: 0;
+   }
+ </style>
 
-<title>타이틀 입력</title>
+ <script>
+  var map;
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 8
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmo7bGkuDhTUwjzoNeH5bDAaKPiQ8H6WU&callback=initMap"
+async defer></script>
+
 
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/board.css">
@@ -27,7 +53,6 @@
 
 <link rel="stylesheet" href="/css/swipebox.css">
 
-<script type="text/javascript" src="https://openapi.map.naver.com/openapi/v2/maps.js?clientId=U0mIIVxtidfsLSobyVRA"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
 <script type="text/javascript" src="js/common.js"></script>
 
@@ -264,8 +289,8 @@
 					</div>
 				</div>
 				<div class="dateinfo">
-					<div class="t_date">2017.05.20. 13:00</div>
-					<div class="t_location">울산MBC컨벤션웨딩/1층/펠리시타홀</div>
+					<div class="t_date">2017.09.10. 13:30</div>
+					<div class="t_location">양재시민의 숲 예식장</div>
 				</div>
 			</div>
 
@@ -273,7 +298,7 @@
 				<img src="img/main_dday.png" alt="" height="12"> -			</div>
 
 			<!--신랑,신부 전화및 문자-->
-			<div class="icons_tel">
+			<!-- <div class="icons_tel">
 				<div>
 					<a href="tel:01034594587"><img src="img/02_02.png" alt="신랑전화"></a>
 					<a href="sms:01034594587"><img src="img/02_03.png" alt="신랑문자"></a>
@@ -281,7 +306,7 @@
 					<a href="sms:01032508627"><img src="img/02_05.png" alt="신부문자"></a>
 				</div>
 				<img src="img/icons_tel_bg.png" alt="">
-			</div>
+			</div> -->
 
 		</div>
 
@@ -346,9 +371,7 @@
 			<div class="section">
 				<div class="t_tit"><img src="img/section_03.png"></div>
 				<div class="t_cont wmaps">
-					<div class="map">
-						<div id="naverMap2" style="width:100%;height:400px"></div>
-					</div>
+					<div id="map"></div>
 					<div class="map_address">
 						<strong>울산MBC컨벤션웨딩/1층/펠리시타홀</strong>
 						<span>울산MBC컨벤션웨딩</span>
@@ -392,379 +415,6 @@
 
 		</div><!--//section_group-->
 
-		<!-- guestbook-->
-				<div class="guest">
-			<div class="t_tit"><img src="img/board/guest_title.png" alt=""></div>
-			<div class="guest_inputbox">
-				<form name="commentF" id="commentF">
-					<label class="gi_row">
-						<span><img src="img/board/guest_lt1.gif"></span>
-						<div class="l_cont">
-							<input type="text" name="name" id="name">
-						</div>
-					</label>
-					<label class="gi_row"><span><img src="img/board/guest_lt2.gif"></span>
-						<div class="l_cont">
-							<input type="password" name="pwd" id="pwd">
-						</div>
-					</label>
-					<label class="gi_row"><span><img src="img/board/guest_lt3.gif"></span>
-						<div class="l_cont">
-							<input type="text" name="content" id="content">
-						</div>
-					</label>
-					<div class="gi_row"><span><img src="img/board/guest_lt4.gif"></span>
-						<div class="l_cont l_select_icon">
-							<label>
-								<input type="radio" value="1" name="emoticon">
-								<span class="guest_icons1 guest_icons"></span>
-							</label>
-							<label>
-								<input type="radio" value="2" name="emoticon">
-								<span class="guest_icons2 guest_icons"></span>
-							</label>
-							<label>
-								<input type="radio" value="3" name="emoticon">
-								<span class="guest_icons3 guest_icons"></span>
-							</label>
-							<label>
-								<input type="radio" value="4" name="emoticon">
-								<span class="guest_icons4 guest_icons"></span>
-							</label>
-							<label>
-								<input type="radio" value="5" name="emoticon">
-								<span class="guest_icons5 guest_icons"></span>
-							</label>
-						</div>
-					</div>
-					<input type="button" class="btn" onclick="regComment()" value="글남기기" />
-					<input type="hidden" name="mode" value="reg" />
-					<input type="hidden" name="flag" value="2" />
-					<input type="hidden" name="refcode" value="1492842850" />
-				</form>
-			</div>
-
-			<div id="commentDiv" class="guest_doc">
-				<div class="guset_doc_header">댓글 10</div>
-				<div class="guest_doc_list">
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons5 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>수연</strong>
-							<span class="gdl_date">2017-04-27 20:03:31</span>
-							<span class="gdl_txt">축하드립니다!!!</span>
-							<a href="javascript:delAuth('1493291011','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493291011" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493291011" id="pwd1493291011"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493291011')" value="삭제" />
-									<a href="javascript:delAuth('1493291011',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons4 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>바꽝</strong>
-							<span class="gdl_date">2017-04-27 09:05:29</span>
-							<span class="gdl_txt">추콰합다</span>
-							<a href="javascript:delAuth('1493251529','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493251529" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493251529" id="pwd1493251529"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493251529')" value="삭제" />
-									<a href="javascript:delAuth('1493251529',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons5 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>나리</strong>
-							<span class="gdl_date">2017-04-26 11:30:45</span>
-							<span class="gdl_txt">드디어 시집가네 ㅋㅋㅋㅋㅋ울산미녀ㅋㅋㅋㅋㅋㅋㅋㅋ</span>
-							<a href="javascript:delAuth('1493173845','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493173845" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493173845" id="pwd1493173845"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493173845')" value="삭제" />
-									<a href="javascript:delAuth('1493173845',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons2 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>만호</strong>
-							<span class="gdl_date">2017-04-26 10:30:30</span>
-							<span class="gdl_txt">축하드립니다행님 !!</span>
-							<a href="javascript:delAuth('1493170230','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493170230" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493170230" id="pwd1493170230"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493170230')" value="삭제" />
-									<a href="javascript:delAuth('1493170230',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons2 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>동훈</strong>
-							<span class="gdl_date">2017-04-26 10:27:09</span>
-							<span class="gdl_txt">세관형님 축하드립니다^^</span>
-							<a href="javascript:delAuth('1493170029','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493170029" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493170029" id="pwd1493170029"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493170029')" value="삭제" />
-									<a href="javascript:delAuth('1493170029',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons5 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>화진</strong>
-							<span class="gdl_date">2017-04-26 10:23:44</span>
-							<span class="gdl_txt">축하드려요:)</span>
-							<a href="javascript:delAuth('1493169824','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493169824" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493169824" id="pwd1493169824"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493169824')" value="삭제" />
-									<a href="javascript:delAuth('1493169824',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons2 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>강철</strong>
-							<span class="gdl_date">2017-04-26 10:20:42</span>
-							<span class="gdl_txt">축하드립니다</span>
-							<a href="javascript:delAuth('1493169642','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493169642" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493169642" id="pwd1493169642"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493169642')" value="삭제" />
-									<a href="javascript:delAuth('1493169642',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons5 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>ㅎㅈ</strong>
-							<span class="gdl_date">2017-04-25 17:14:38</span>
-							<span class="gdl_txt">축하드려요 형님</span>
-							<a href="javascript:delAuth('1493108078','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493108078" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493108078" id="pwd1493108078"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493108078')" value="삭제" />
-									<a href="javascript:delAuth('1493108078',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons5 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>예은</strong>
-							<span class="gdl_date">2017-04-24 20:03:57</span>
-							<span class="gdl_txt">축하드려요!!!</span>
-							<a href="javascript:delAuth('1493031837','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493031837" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493031837" id="pwd1493031837"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493031837')" value="삭제" />
-									<a href="javascript:delAuth('1493031837',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-										<!--row-->
-					<div class="gdl_row">
-						<div class="gdl_icon">
-							<span class="guest_icons2 guest_icons"></span>
-						</div>
-						<div class="gdl_cont">
-							<strong>윤정</strong>
-							<span class="gdl_date">2017-04-24 19:01:15</span>
-							<span class="gdl_txt">오오.... 감동........</span>
-							<a href="javascript:delAuth('1493028075','1')" class="gdl_delete"></a>
-						</div>
-					</div>
-					<!--//row-->
-
-					<!--// 삭제폼-->
-					<div id="pwdDiv1493028075" class="delete_from" style="display:none;">
-						<div>
-							<form>
-								<strong>삭제시 복구가 불가능합니다.</strong>
-								<div>
-									<label>비밀번호 <input type="password" name="pwd1493028075" id="pwd1493028075"></label>
-								</div>
-								<div class="btn_set">
-									<input type="button" class="btn" onclick="delConfirm('1493028075')" value="삭제" />
-									<a href="javascript:delAuth('1493028075',0)">취소</a>
-								</div>
-							</form>
-						</div>
-					</div>
-
-									</div>
-
-								<a href="javascript:getCommentData()" class="gdl_more"></a>
-
-			</div>
-		</div>
-
-		<!-- 공유 버튼-->
-		<div class="share_box">
-			<a id="kakao-link-btn" href="javascript:goKaKao('[장세관 ♡ 남유미] \n결혼식에 초대합니다.\n일시:2017-05-20 13:00\n장소:울산MBC컨벤션웨딩/1층/펠리시타홀','http://www.mgcard.net/inv/?_mc=1492842850','http://www.mgcard.netimg/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg','600','839');"><img src="img/share1.gif" alt="카카오톡"></a>
-			<a href="#"><img src="img/share2.gif" alt="카카오스토리" id="kakaostory"></a>
-			<a href="#"><img src="img/share3.gif" alt="페이스북" id="facebook"></a>
-			<a href="#"><img src="img/share4.gif" alt="트위터" id="twitter"></a>
-		</div>
-				<div style="display:none;"><audio controls autoplay id="mPlayer" src="./music/01.mp3" width="0" height="0" type="audio/mpeg">음악을 지원하지 않습니다.</audio></div>
-
-
-	</div>
 </body>
 </html>
 
