@@ -31,17 +31,6 @@
    }
  </style>
 
- <script>
-  var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: -34.397, lng: 150.644},
-      zoom: 8
-    });
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmo7bGkuDhTUwjzoNeH5bDAaKPiQ8H6WU&callback=initMap" async defer></script>
-
 
 <link rel="stylesheet" href="css/common.css">
 <link rel="stylesheet" href="css/board.css">
@@ -602,3 +591,14 @@ function sendSns(sns, url, txt)
     }
 }
 </script>
+
+<script>
+ var map;
+ function initMap() {
+   map = new google.maps.Map(document.getElementById('map'), {
+     center: {lat: -34.397, lng: 150.644},
+     zoom: 8
+   });
+ }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmo7bGkuDhTUwjzoNeH5bDAaKPiQ8H6WU&callback=initMap" async defer></script>
