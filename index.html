@@ -16,7 +16,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://www.mgcard.net/inv/?_mc=1492842850" />
 <meta property="og:image" content="img/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg"/>
-<meta property="og:description" content="[장세관 ♡ 남유미] 결혼식에 초대합니다.일시:2017-05-20 13:00장소:울산MBC컨벤션웨딩/1층/펠리시타홀" />
+<meta property="og:description" content="[정호진 ♡ 강소영] 결혼식에 초대합니다.일시:2017-09-10 13:30 장소:양재시민의 숲" />
 
 <title>타이틀 입력</title>
 
@@ -41,104 +41,7 @@
 } )( jQuery );
 </script>
 
-<script>
-	$(document).ready(function(){
-		document.getElementById("mPlayer").play();
-		document.getElementById("musicImg").src = "img/music_on.png";
-	})
-</script>
-
 <script language="javascript">
-<!--
-	var play = false;
-	function playerMusic(){
-		var obj = document.getElementById("mPlayer");
-		var objImg = document.getElementById("musicImg");
-		if(play == false){
-			objImg.src = "img/music_on.png";
-			obj.play();
-			play = true;
-		}else{
-			objImg.src = "img/music.png";
-			obj.pause();
-			play = false;
-		}
-	}
-	function regComment(){
-		if($("#name").val() == ""){
-			alert('이름을 입력하세요.');
-			$("#name").focus();
-			return false;
-		}
-		if($("#pwd").val() == ""){
-			alert('비밀번호를 입력하세요.');
-			$("#pwd").focus();
-			return false;
-		}
-		if($("#content").val() == ""){
-			alert('내용을 입력하세요.');
-			$("#content").focus();
-			return false;
-		}
-		if(!$(":input:radio[name=emoticon]:checked").val()){
-			alert('느낌을 선택하세요.');
-			return false;
-		}
-
-		var param = $("#commentF").serialize();
-
-		$.ajax({
-			type: "POST",
-			url: "/inv/board/comment_reg_new.php",
-			dataType:"html",
-			data:param,
-			success:function(data){
-				var obj = document.getElementById("commentDiv");
-
-				var HTML = "<div class='gdl_row'>";
-				HTML = HTML + "<div class='guest_doc_list'>";
-				HTML = HTML + "<div class='gdl_icon'><span class='guest_icons1 guest_icons'></span></div>";
-				HTML = HTML + "<div class='gdl_cont'><strong>모닝글로리</strong><span class='gdl_date'>2017-02-17 09:12:33</span><span class='gdl_txt'>안녕하세요 결혼 축하드립니다.<br/>이쁘게 사랑하고 행복하게 사세요</span></div>";
-				HTML = HTML + "</div>";
-				HTML = HTML + "</div>";
-
-				obj.innerHTML = data;
-				$("#name").val("");
-				$("#pwd").val("");
-				$("#content").val("");
-			},
-			error:function(xhr){
-			}
-		});
-	}
-
-	function goKaKao(msg,url,img,width,height){
-		Kakao.cleanup();
-		Kakao.init('a0cf9a0a643c4c1265505394a4fa953f');
-
-		try{
-
-			//Kakao.Link.createTalkLinkButton({
-			Kakao.Link.sendTalkLink ({
-				//container: '#kakao-link-btn',
-				label: msg,
-				image: {
-					src: img,
-					width: width,
-					height: height
-				},
-				webButton:{
-					text:'모바일청첩장으로 이동',
-					url: url
-				},
-				fail: function(){
-
-				}
-			});
-		}catch(e){
-			alert(e.toString());
-		}
-	}
 
 	function scrollLink(obj){
 	 var position = $("#"+obj).offset();
@@ -352,7 +255,7 @@
 						<div id="naverMap2" style="width:100%;height:400px"></div>
             <iframe
               width="600"
-              height="450"
+              height="350"
               frameborder="0" style="border:0"
               src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD2L_K2iRwv5hGzRgMWcHIPXjay-uL1NkQ&q=place_id:ChIJLyKYky2hfDURVcL7JbFR5Yw" allowfullscreen>
             </iframe>
