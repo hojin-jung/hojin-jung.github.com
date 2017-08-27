@@ -18,7 +18,6 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .main > img { display: block; width: 100%; }
 
 .weddinginfo { margin-bottom: 40px; }
-.weddinginfo .bloomAndBride {margin: auto; width: 65%; }
 .weddinginfo .dateinfo { margin-top: 50px; }
 .weddinginfo .dateinfo > div { text-align: center; font-size: 14px; }
 .weddinginfo .dateinfo .t_date { color: #008744; font-family: 'Varela Round'; font-size: 20px; }
@@ -35,7 +34,7 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .sgallery .t_images img { display: block; width: 100%; }
 
 .greet { padding: 50px 20px; }
-.greet .t_image img { display: block; width: 40%; margin: 0 auto; }
+.greet .t_image img { display: block; margin: 0 auto; }
 .greet .t_text { padding: 40px 0 50px 0; color: #6D6E70; font-size: 13px; line-height: 30px; text-align: center; }
 .greet .t_text img { display: block; width: 100%; }
 .greet .icons_tel { position: relative; }
