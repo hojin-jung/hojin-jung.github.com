@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+008744@import url("https://fonts.googleapis.com/css?family=Varela+Round");
 html, body { margin: 0; padding: 0; }
 
 
@@ -11,28 +11,22 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .tmenu .music_controller { float: left; }
 .tmenu .music_controller a { display: block; }
 .tmenu .music_controller img { display: block; width: 100px; }
-.tmenu .logo { float: right; }
+.tmenu .logo { float: right; margin: auto; width: 60%}
 .tmenu .logo img { display: block; width: 150px; }
 
 .main { position: relative; padding: 10px; }
 .main > img { display: block; width: 100%; }
 
 .weddinginfo { margin-bottom: 40px; }
-.weddinginfo .person:after { content: ''; display: block; clear: both; }
-.weddinginfo .person > div { width: 250px; margin: 0 auto; text-align: center; font-size: 15px; color: #919396; }
-.weddinginfo .person > div:first-child { margin-bottom: 10px; }
-.weddinginfo .person > div:after { content: ''; display: block; clear: both; }
-.weddinginfo .person > div div { line-height: 15px; }
-.weddinginfo .person > div div:first-child { float: left; }
-.weddinginfo .person > div div:last-child { float: right; }
+.weddinginfo .bloomAndBride {margin: auto; width: 65%; }
 .weddinginfo .dateinfo { margin-top: 50px; }
 .weddinginfo .dateinfo > div { text-align: center; font-size: 14px; }
-.weddinginfo .dateinfo .t_date { color: #F9A63F; font-family: 'Varela Round'; font-size: 20px; }
+.weddinginfo .dateinfo .t_date { color: #008744; font-family: 'Varela Round'; font-size: 20px; }
 .weddinginfo .dateinfo .t_location { color: #6D6E70; margin-top: 5px; }
 
-.dday_count { text-align: center; margin-bottom: 10px; color: #F9A63F; font-size: 20px; font-family: 'Varela Round'; font-weight: bold; }
+.dday_count { text-align: center; margin-bottom: 10px; color: #008744; font-size: 20px; font-family: 'Varela Round'; font-weight: bold; padding-bottom: 30px}
 
-.sgallery .t_main_image { margin-bottom: 5px; }
+.sgallery .t_main_image { margin-bottom: 5px; padding-top : 140px}
 .sgallery .t_main_image img { display: block; width: 100%; }
 .sgallery .t_images:after { content: ''; display: block; clear: both; }
 /*.sgallery .t_images a { display: block; width: 32.66%; float: left; box-sizing: border-box; margin-right: 1%; margin-bottom: 1%; }*/
@@ -57,12 +51,12 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .section_group .section:last-child { margin-bottom: 0; }
 
 .section .t_tit { margin-bottom: 20px; position: relative; }
-.section .t_tit img { display: block; width: 40%; margin: 0 auto; }
+.section .t_tit img { display: block; margin: 0 auto; }
 
 .wmaps .map { margin-bottom: 10px; }
 .wmaps .map_address { margin-bottom: 40px; }
 .wmaps .map_address > strong, .wmaps .map_address > span { display: block; }
-.wmaps .map_address > strong { color: #F9A63F; font-size: 15px; margin-bottom: 5px; }
+.wmaps .map_address > strong { color: #008744; font-size: 15px; margin-bottom: 5px; }
 .wmaps .map_address > span { font-size: 12px; color: #404041; margin-bottom: 10px; }
 .wmaps .map_address .map_user { color: #808080; font-size: 12px; }
 .wmaps .map_icons { margin-bottom: 40px; }
