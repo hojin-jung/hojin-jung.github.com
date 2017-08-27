@@ -18,7 +18,8 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .main > img { display: block; width: 100%; }
 
 .weddinginfo { margin-bottom: 40px; }
-.weddinginfo .bloomAndBride {text-align: center;}
+.weddinginfo .bloomAndBride {text-align: center; padding: 40px 0 50px 0}
+.weddinginfo .bloomAndBride img{display: block; widht:100%}
 .weddinginfo .dateinfo { margin-top: 50px; }
 .weddinginfo .dateinfo > div { text-align: center; font-size: 14px; }
 .weddinginfo .dateinfo .t_date { color: #008744; font-family: 'Varela Round'; font-size: 20px; }
