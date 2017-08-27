@@ -53,3 +53,5 @@
 .delete_from > div .btn, .delete_from > div a { background: #e5e5e4; margin: 0; padding: 0; border: 1px solid #bcbcbc; border-radius: 2px; display: block; height: 25px; line-height: 25px; widtH: 40px; text-align: center; font-size: 12px; display: inline-block; text-decoration: none; color: #1f1f1f; box-sizing: border-box; vertical-align: middle; }
 
 /*# sourceMappingURL=board.css.map */
+.dday_count {padding-bottom: 30px}
+.sgallery {padding-top : 140px}
