@@ -12,7 +12,7 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .tmenu .music_controller a { display: block; }
 .tmenu .music_controller img { display: block; width: 100px; }
 .tmenu .logo {  margin:0px auto; width: 100%}
-.tmenu .logo img { display: block; margin:0px auto; width: 150px; }
+.tmenu .logo img { display: block; margin:0px auto; width: 100%; }
 
 .main { position: relative; padding: 10px; }
 .main > img { display: block; width: 100%; }
@@ -20,7 +20,7 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .weddinginfo { margin-bottom: 40px; }
 .weddinginfo .bloomAndBride {text-align: center; padding: 40px 0 50px 0}
 .weddinginfo .bloomAndBride img{display: block; widht:100%}
-.weddinginfo .dateinfo { margin-top: 50px; }
+.weddinginfo .dateinfo { margin-top: 50px; font-weight: bold; }
 .weddinginfo .dateinfo > div { text-align: center; font-size: 14px; }
 .weddinginfo .dateinfo .t_date { color: #008744; font-family: 'Varela Round'; font-size: 20px; }
 .weddinginfo .dateinfo .t_location { color: #6D6E70; margin-top: 5px; }
@@ -74,6 +74,9 @@ a, div, p { font-family: AppleSDGothicNeo-Regular,Droid sans,Helvetica,sans-seri
 .share_box a { display: inline-block; width: 50px; margin-right: 10px; }
 .share_box a:last-child { margin-right: 0; }
 .share_box a img { display: block; width: 100%; }
+
+div.dday_count img{width:100%;}
+div.t_tit img{width:100%;}
 
 
 @media all and (min-width: 640px) { body { padding: 20px 0; }
