@@ -355,12 +355,12 @@
 	}
 </script>
 <script>
-function daycheck() {
+(function daycheck() {
 var d_day = new Date('2017',8,10);
 var currday = 24 * 60 * 60 * 1000;
 var minusDay = parseInt((d_day - new Date())/currday);
 var minusDayStr = minusDay > 0 ? '' : -  + Math.abs(minusDay)
 console.log(minusDayStr)
 $('.dday_count').appendTo('<div>' + minusDayStr  + '</div>')
-}();
+})()
 </script>
