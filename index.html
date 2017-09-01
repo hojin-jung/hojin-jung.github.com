@@ -14,7 +14,7 @@
 
 	<meta property="og:title" content="[정호진 ♥ 강소영] 결혼식에 초대합니다." />
 
-	<meta property="og:image" content="img/mcard/thumb-4571ffcbcee4a9a_600x839.933811362.jpg" />
+	<meta property="og:image" content="img/mcard/JU1_4561.jpg" />
 	<meta property="og:description" content="[정호진 ♥ 강소영] 결혼식에 초대합니다.일시:2017-09-10 13:30 장소:양재시민의 숲" />
 
 	<title>[정호진 ♥ 강소영] 결혼식에 초대합니다</title>
@@ -118,9 +118,9 @@
 							<img src="크롭이미지주소 (사이즈 200x133)">
 						</a>
 						-->
-						<a href="img/mcard/thumb-81e4cecfe7f83eb_600x840.098603122.jpg" class="swipebox">
+						<a href="img/mcard/JU1_4561.jpg" class="swipebox">
 							<!--<img src="img/mcard/thumb-81e4cecfe7f83eb_600x840.098603122.jpg" width="220" height="133">-->
-							<img src="img/mcard/thumb-81e4cecfe7f83eb_600x840.098603122.jpg" />
+							<img src="img/mcard/JU1_4561.jpg" />
 						</a>
 						<a href="img/mcard/thumb-6dca0e3dbdb6312_600x600.jpg" class="swipebox">
 							<!--<img src="img/mcard/thumb-6dca0e3dbdb6312_600x600.jpg" width="220" height="133">-->
@@ -359,7 +359,7 @@
 var d_day = new Date('2017',8,10);
 var currday = 24 * 60 * 60 * 1000;
 var minusDay = parseInt((d_day - new Date())/currday);
-var minusDayStr = minusDay > 0 ? '' : -  + Math.abs(minusDay)
+var minusDayStr = minusDay < 0 ? '' : -  + Math.abs(minusDay)
 console.log(minusDayStr)
 $('.dday_count').appendTo('<div>' + minusDayStr  + '</div>')
 })()
